@@ -36,7 +36,6 @@ VOCAB_FILES_NAMES = {"vocab_file": "tokenizer.model"}
 
 PRETRAINED_VOCAB_FILES_MAP = {}
 
-
 class LLaMATokenizer(PreTrainedTokenizer):
     """
     Construct a LLaMA tokenizer. Based on byte-level Byte-Pair-Encoding.

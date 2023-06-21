@@ -21,7 +21,7 @@ Here is Everything you need for running (and training!) LLaMA using Hugging Face
 ### TL;DR:
 
 ```python
-tokenizer = llama.LLaMATokenizer.from_pretrained('decapoda-research/llama-7b-hf')
+tokenizer = llama.LlamaTokenizer.from_pretrained('decapoda-research/llama-7b-hf')
 model = llama.LLaMAForCausalLM.from_pretrained('decapoda-research/llama-7b-hf')
 print(tokenizer.decode(model.generate(tokenizer('Yo mama', return_tensors = "pt")["input_ids"])[0]))
 ```
@@ -72,7 +72,7 @@ MODEL = 'decapoda-research/llama-7b-hf'
 ### 2. Load the tokenizer and model
 
 ```python
-tokenizer = llama.LLaMATokenizer.from_pretrained(MODEL)
+tokenizer = llama.LlamaTokenizer.from_pretrained(MODEL)
 model = llama.LLaMAForCausalLM.from_pretrained(MODEL)
 model.to('cuda')
 ```

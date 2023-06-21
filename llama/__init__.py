@@ -45,32 +45,16 @@ else:
         "LLaMAPreTrainedModel",
     ]
 
+from .tokenization_llama import LLaMATokenizer
 
-if TYPE_CHECKING:
-    from .configuration_llama import LLAMA_PRETRAINED_CONFIG_ARCHIVE_MAP, LLaMAConfig
+from .modeling_llama import (
+    LLaMAForCausalLM,
+    LLaMAModel,
+    LLaMAPreTrainedModel,
+)
 
-    try:
-        if not is_sentencepiece_available():
-            raise OptionalDependencyNotAvailable()
-    except OptionalDependencyNotAvailable:
-        pass
-    else:
-        from .tokenization_llama import LLaMATokenizer
+from .configuration_llama import LLAMA_PRETRAINED_CONFIG_ARCHIVE_MAP, LLaMAConfig
 
-    try:
-        if not is_torch_available():
-            raise OptionalDependencyNotAvailable()
-    except OptionalDependencyNotAvailable:
-        pass
-    else:
-        from .modeling_llama import (
-            LLaMAForCausalLM,
-            LLaMAModel,
-            LLaMAPreTrainedModel,
-        )
+import sys
 
-
-else:
-    import sys
-
-    sys.modules[__name__] = _LazyModule(__name__, globals()["__file__"], _import_structure, module_spec=__spec__)
+sys.modules[__name__] = _LazyModule(__name__, globals()["__file__"], _import_structure, module_spec=__spec__)
